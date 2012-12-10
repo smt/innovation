@@ -1,0 +1,111 @@
+<head>
+  <title>meteor-demo</title>
+</head>
+
+<body>
+  {{> lobby}}
+  {{> achievements}}
+  {{> piles}}
+</body>
+
+<template name="lobby">
+  <div>
+    {{#if show }}
+    <div id="lobby">
+      <h1>What's your name?</h1>
+      <input id="myname" type="text" />
+      {{#if count}}
+      <h1>{{count}} other players are in the lobby:</h1>
+      {{#each waiting }}
+      <div class="player">{{name}}</div>
+      {{/each}}
+      {{/if}}
+      <div>
+        <button id="startgame" class="startgame" {{{disabled}}}>
+          {{#if count}} It's on! {{else}} Play solo {{/if}}
+        </button>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</template>
+
+<template name="achievements">
+  {{#if show}}
+    <h1>Achievements</h1>
+    <div class="pile">
+    {{#each standard}}
+      {{> card}}
+    {{/each}}
+    </div>
+  {{/if}}
+</template>
+
+<template name="piles">
+  {{#if show}}
+    <h1>Piles</h1>
+    <div class="piles">
+      {{#each piles}}
+        <h2>{{level}}</h2>
+        <div class="pile">
+          {{#each cards}}
+            {{> card}}
+          {{/each}}
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</template>
+
+<template name="card">
+  <div class="card {{color}}">
+    {{name}}
+  </div>
+</template>
+
+<!-- <template name="Products"> -->
+<!--   <h1>Products</h1> -->
+<!--   {{#each ProductSet}} -->
+<!--     <div class="product"> -->
+<!--       <h2>{{name}}</h2> -->
+<!--       <p>Price: ${{price}}</p> -->
+<!--       {{#if this.inStock}} -->
+<!--         <p>This thing is in stock.</p> -->
+<!--       {{else}} -->
+<!--         <p>This thing is currently sold out.</p> -->
+<!--       {{/if}} -->
+<!--     </div> -->
+<!--   {{/each}} -->
+<!-- </template> -->
+
+<!-- <template name="Cart"> -->
+<!--   <div id="cart"> -->
+<!--     <table border="0" cellspacing="5" cellpadding="5"> -->
+<!--       <thead> -->
+<!--         <tr> -->
+<!--           <th>Name</th> -->
+<!--           <th>Price</th> -->
+<!--           <th>Quantity</th> -->
+<!--           <th>Total</th> -->
+<!--         </tr> -->
+<!--       </thead> -->
+<!--       <tfoot> -->
+<!--         <tr> -->
+<!--           <td colspan="4">Total: ${{SubTotal}}</td> -->
+<!--         </tr> -->
+<!--       </tfoot> -->
+<!--       <tbody> -->
+<!--       {{#each CartItems}} -->
+<!--         <tr> -->
+<!--           <td>{{name}}</td> -->
+<!--           <td>${{price}}</td> -->
+<!--           <td>{{quantity}}</td> -->
+<!--           <td>${{Total}}</td> -->
+<!--         </tr> -->
+<!--       {{/each}} -->
+<!--       </tbody> -->
+<!--       <tr><th>Header</th></tr> -->
+<!--       <tr><td>Data</td></tr> -->
+<!--     </table> -->
+<!--   </div> -->
+<!-- </template> -->

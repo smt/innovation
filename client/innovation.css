@@ -1,0 +1,20 @@
+/* CSS declarations go here */
+body {
+    font-family: sans-serif;
+}
+.pile {
+}
+.card {
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 0.625em;
+    line-height: 2;
+    margin: 0.5em;
+    padding: 0.5em;
+    text-transform: uppercase;
+}
+.red { background-color: red; color: white; }
+.yellow { background-color: yellow; }
+.green { background-color: green; color: white; }
+.blue { background-color: blue; color: white; }
+.purple { background-color: purple; color: white; }
